@@ -1,0 +1,39 @@
+# Arquivos de build
+bin/
+obj/
+*.dll
+*.exe
+
+# Banco local (SQLite)
+*.db
+
+# Logs
+*.log
+
+# Configurações de IDE
+.vscode/
+.idea/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Pasta Rider
+.idea/
+
+# Arquivos temporários
+*.tmp
+*.temp
+
+# Informações do sistema
+Thumbs.db
+.DS_Store
+
+# Backup
+*.bak
+
+# Dotnet ef
+Migrations/
+
+# Ignorar ambiente local (caso tenha)
+.env
