@@ -12,7 +12,7 @@ namespace SafeZone.API.Models
 
         [Required]
         [RegularExpression(@"^\d{11}$", ErrorMessage = "CPF deve conter 11 dígitos numéricos")]
-        public string CPF { get; set; } = string.Empty;
+        public string Cpf { get; set; } = string.Empty;
 
         [Required]
         public string Prioridade { get; set; } = "Normal";

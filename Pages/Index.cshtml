@@ -1,0 +1,159 @@
+@page
+@model SafeZone.API.Pages.IndexModel
+
+@{
+    ViewData["Title"] = "Painel SafeZone";
+}
+
+<style>
+    body {
+        background-color: #f8f9fa;
+        font-family: 'Segoe UI', sans-serif;
+    }
+    .header {
+        background-color: #2c3e50;
+        color: white;
+        padding: 20px;
+        text-align: center;
+        font-size: 1.8rem;
+        font-weight: bold;
+        border-bottom: 4px solid #00B131;
+    }
+    .sub-header {
+        text-align: center;
+        margin: 15px;
+        font-size: 1rem;
+        color: #555;
+    }
+    table {
+        margin: auto;
+        width: 90%;
+        border-collapse: collapse;
+        margin-bottom: 40px;
+        box-shadow: 0 0 15px rgba(0,0,0,0.05);
+    }
+    th {
+        background-color: #006F3D; /* Novo tom verde escuro */
+        color: white;
+        padding: 10px;
+    }
+    td {
+        padding: 10px;
+        text-align: center;
+    }
+    tr:nth-child(even) {
+        background-color: #f2f2f2;
+    }
+    .swagger-btn {
+        display: block;
+        width: fit-content;
+        margin: 20px auto 40px;
+        padding: 10px 20px;
+        background-color: #17a2b8;
+        color: white;
+        text-decoration: none;
+        border-radius: 5px;
+    }
+    .swagger-btn:hover {
+        background-color: #138496;
+    }
+</style>
+
+<a href="/swagger" class="swagger-btn">Ir para o Swagger</a>
+
+<div class="header">Lista de Moradores</div>
+<div class="sub-header">Gerencie os moradores cadastrados em zonas de risco</div>
+
+<table>
+    <thead>
+    <tr>
+        <th>Nome</th>
+        <th>CPF</th>
+        <th>Prioridade</th>
+        <th>Zona de Risco</th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var morador in Model.Moradores)
+    {
+        <tr>
+            <td>@morador.Nome</td>
+            <td>@morador.Cpf</td>
+            <td>@morador.Prioridade</td>
+            <td>@morador.ZonaDeRisco?.Nome</td>
+        </tr>
+    }
+    </tbody>
+</table>
+
+<div class="header">Zonas de Risco</div>
+<div class="sub-header">Informações das zonas cadastradas</div>
+<table>
+    <thead>
+    <tr>
+        <th>Nome</th>
+        <th>Tipo de Evento</th>
+        <th>Status</th>
+        <th>Coordenadas</th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var zona in Model.ZonasDeRisco)
+    {
+        <tr>
+            <td>@zona.Nome</td>
+            <td>@zona.TipoEvento</td>
+            <td>@zona.Status</td>
+            <td>@zona.Coordenadas</td>
+        </tr>
+    }
+    </tbody>
+</table>
+
+<div class="header">Kits de Emergência</div>
+<div class="sub-header">Estoque de kits para resposta rápida</div>
+<table>
+    <thead>
+    <tr>
+        <th>Tipo</th>
+        <th>Quantidade</th>
+        <th>Local de Estoque</th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var kit in Model.KitsEmergencia)
+    {
+        <tr>
+            <td>@kit.Tipo</td>
+            <td>@kit.Quantidade</td>
+            <td>@kit.LocalEstoque</td>
+        </tr>
+    }
+    </tbody>
+</table>
+
+<div class="header">Alertas Ativos</div>
+<div class="sub-header">Histórico de alertas emitidos para as zonas cadastradas</div>
+<table>
+    <thead>
+    <tr>
+        <th>Título</th>
+        <th>Descrição</th>
+        <th>Gravidade</th>
+        <th>Data/Hora</th>
+        <th>Zona</th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var alerta in Model.Alertas)
+    {
+        <tr>
+            <td>@alerta.Titulo</td>
+            <td>@alerta.Descricao</td>
+            <td>@alerta.NivelGravidade</td>
+            <td>@alerta.DataHora.ToString("g")</td>
+            <td>@alerta.ZonaDeRisco?.Nome</td>
+        </tr>
+    }
+    </tbody>
+</table>

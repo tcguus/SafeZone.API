@@ -24,6 +24,7 @@ builder.Services.AddSwaggerGen(c =>
         
     });
 });
+builder.Services.AddRazorPages();
 
 var app = builder.Build();
 
@@ -36,5 +37,6 @@ if (app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 app.UseAuthorization();
 app.MapControllers(); 
+app.MapRazorPages();
 
 app.Run();

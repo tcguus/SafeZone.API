@@ -41,7 +41,7 @@ namespace SafeZone.API.Controllers
             var morador = new Morador
             {
                 Nome = dto.Nome,
-                CPF = dto.CPF,
+                Cpf = dto.CPF,
                 Prioridade = dto.Prioridade,
                 ZonaDeRiscoId = dto.ZonaDeRiscoId
             };

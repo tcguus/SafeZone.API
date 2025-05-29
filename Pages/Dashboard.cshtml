@@ -1,0 +1,36 @@
+@page
+@model SafeZone.API.Pages.DashboardModel
+@{
+    ViewData["Title"] = "Painel SafeZone";
+}
+
+<h1>Painel de Gerenciamento - SafeZone</h1>
+
+<nav>
+    <ul>
+        <li><a asp-page="/Index">Início</a></li>
+        <li><a href="/swagger/index.html" target="_blank">Swagger Docs</a></li>
+    </ul>
+</nav>
+
+<hr />
+
+<h2>Zonas de Risco</h2>
+<table>
+    <thead>
+    <tr>
+        <th>Nome</th>
+        <th>Tipo de Evento</th>
+        <th>Status</th>
+        <th>Coordenadas</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>Zona Norte</td>
+        <td>Deslizamento</td>
+        <td>Ativo</td>
+        <td>-23.55, -46.63</td>
+    </tr>
+    </tbody>
+</table>

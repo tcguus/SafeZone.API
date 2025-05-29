@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "zK/xwK6HV3Q=",
+  "dgSpecHash": "0I3T5gjIwDA=",
   "success": true,
-  "projectFilePath": "C:\\Windows\\System32\\SafeZone.API\\SafeZone.API.csproj",
+  "projectFilePath": "C:\\Users\\Gustavo\\RiderProjects\\SafeZone.API\\SafeZone.API.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Gustavo\\.nuget\\packages\\azure.core\\1.38.0\\azure.core.1.38.0.nupkg.sha512",
     "C:\\Users\\Gustavo\\.nuget\\packages\\azure.identity\\1.11.4\\azure.identity.1.11.4.nupkg.sha512",
