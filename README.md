@@ -6,25 +6,25 @@ API desenvolvida para auxiliar na gestão de zonas de risco, moradores, alertas 
 
 ## Visão Geral
 
-A **SafeZone** é uma plataforma que conecta sensores ambientais, aplicativos móveis, interface web em Razor Pages e um backend robusto em .NET para oferecer:
+A SafeZone é uma aplicação desenvolvida em .NET com foco na proteção civil e resposta emergencial. O sistema permite:
 
-* Cadastro de zonas de risco e monitoramento
-* Emissão de alertas emergenciais
-* Controle de moradores em áreas afetadas
-* Estoque de kits de emergência
-* Interface web amigável via Razor Pages
+* Cadastro e monitoramento de zonas de risco
+* Emissão de alertas críticos
+* Gerenciamento de moradores residentes nas zonas
+* Controle de estoque de kits de emergência
+* Interface visual com Razor Pages e navegação por TagHelpers
 
 ---
 
 ## Tecnologias Utilizadas
 
 * ASP.NET Core 8
-* Entity Framework Core + SQLite
+* Entity Framework Core (SQLite)
 * Swagger / OpenAPI
-* Razor Pages + TagHelpers
-* REST Services
-* C# + DTO Pattern
-* JetBrains Rider
+* Razor Pages com TagHelpers
+* REST Services (GET e POST)
+* C# com uso de DTOs
+* IDE: JetBrains Rider
 
 ---
 
@@ -66,62 +66,54 @@ KitEmergencia
 
 ## Como Executar o Projeto
 
-1. **Clone o repositório:**
+1. Clone o repositório:
 
 ```bash
 git clone https://github.com/tcguus/SafeZone.API.git
 ```
 
-2. **Instale as dependências (caso necessário):**
+2. Restaure os pacotes:
 
 ```bash
 dotnet restore
 ```
 
-3. **(Opcional) Gere a migration inicial, se ainda não existir:**
+3. (Opcional) Crie a migration inicial:
 
 ```bash
 dotnet ef migrations add InitialCreate
 ```
 
-4. **Atualize o banco de dados:**
+4. Atualize o banco de dados:
 
 ```bash
 dotnet ef database update
 ```
 
-5. **Execute o projeto:**
+5. Execute a aplicação:
 
 ```bash
 dotnet run
 ```
 
-6. **Acesse a interface Swagger:**
+6. Acesse o Swagger:
 
 [http://localhost:5163/swagger](http://localhost:5163/swagger)
 
-> Recomendado: rodar com o perfil `Development` e usar SQLite configurado em `appsettings.json`.
-
 ---
 
-## Documentação da Interface Web (Razor Pages)
+## Interface Web (Razor Pages)
 
-A aplicação conta com páginas Razor que permitem a interação visual com os dados de forma intuitiva.
+A aplicação possui uma interface web construída com Razor Pages, que permite:
 
-### Funcionalidades disponíveis via Razor:
+* Visualizar listas de moradores, zonas de risco, alertas e kits
+* Organização de dados em tabelas estilizadas
+* Navegação dinâmica entre seções
+* Integração direta com Entity Framework Core
 
-* Listagem de moradores e zonas de risco
-* Cadastro de novas zonas e moradores
-* Atualização de dados existentes
-* Navegação com TagHelpers integrados
-
-### Acesso
-
-Após rodar o projeto, acesse:
+Acesse pelo navegador:
 
 [http://localhost:5163](http://localhost:5163)
-
-> A navegação é simples e o layout foi projetado com foco em clareza e acessibilidade.
 
 ---
 
@@ -149,13 +141,13 @@ Após rodar o projeto, acesse:
 
 ---
 
-## Exemplos de Testes via Swagger
+## Exemplos de Testes no Swagger
 
 ### Criar Kit de Emergência
 
 ```json
 {
-  "tipo": "Agua potável",
+  "tipo": "Água potável",
   "quantidade": 10,
   "localEstoque": "Posto de saúde local"
 }
@@ -199,15 +191,16 @@ Após rodar o projeto, acesse:
 
 ## Detalhes Técnicos
 
-* Ciclos de referência resolvidos com `ReferenceHandler.Preserve`
-* Uso de DTOs para proteção e desacoplamento da camada de domínio
 * Validações automáticas com retorno padronizado (`application/problem+json`)
-* Interface Razor integrada com Entity Framework Core
-* Pronto para integração com aplicações externas e dispositivos IoT
+* DTOs para desacoplamento e proteção da camada de domínio
+* Ciclos de referência resolvidos com `ReferenceHandler.Preserve`
+* Razor Pages com layout estilizado e CSS inline
+* TagHelpers aplicados na navegação entre páginas
+* Projeto preparado para integração futura com dispositivos IoT
 
 ---
 
-## Nossos integrantes
+## Integrantes
 
 * Gustavo Camargo de Andrade — RM555562 — 2TDSPF
 * Rodrigo Souza Mantovanello — RM555451 — 2TDSPF
