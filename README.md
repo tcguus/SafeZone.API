@@ -22,7 +22,7 @@ A SafeZone é uma aplicação desenvolvida em .NET com foco na proteção civil 
 * Entity Framework Core (SQLite)
 * Swagger / OpenAPI
 * Razor Pages com TagHelpers
-* REST Services (GET e POST)
+* REST Services (GET, POST, PUT, DELETE)
 * C# com uso de DTOs
 * IDE: JetBrains Rider
 
@@ -119,25 +119,33 @@ Acesse pelo navegador:
 
 ## Endpoints Disponíveis
 
-### Kits de Emergência
+### Moradores
 
-* `GET /api/KitEmergencia`
-* `POST /api/KitEmergencia`
+* `GET /api/Morador` — Lista todos os moradores
+* `POST /api/Morador` — Cadastra um novo morador
+* `PUT /api/Morador/{id}` — Atualiza um morador existente
+* `DELETE /api/Morador/{id}` — Remove um morador
 
 ### Zonas de Risco
 
-* `GET /api/ZonaDeRisco`
-* `POST /api/ZonaDeRisco`
+* `GET /api/ZonaDeRisco` — Lista todas as zonas
+* `POST /api/ZonaDeRisco` — Cadastra nova zona
+* `PUT /api/ZonaDeRisco/{id}` — Atualiza zona existente
+* `DELETE /api/ZonaDeRisco/{id}` — Remove uma zona
 
-### Moradores
+### Kits de Emergência
 
-* `GET /api/Morador`
-* `POST /api/Morador`
+* `GET /api/KitEmergencia` — Lista todos os kits
+* `POST /api/KitEmergencia` — Cadastra um novo kit
+* `PUT /api/KitEmergencia/{id}` — Atualiza um kit
+* `DELETE /api/KitEmergencia/{id}` — Remove um kit
 
 ### Alertas
 
-* `GET /api/Alerta`
-* `POST /api/Alerta`
+* `GET /api/Alerta` — Lista todos os alertas
+* `POST /api/Alerta` — Emite novo alerta
+* `PUT /api/Alerta/{id}` — Atualiza um alerta
+* `DELETE /api/Alerta/{id}` — Remove um alerta
 
 ---
 
