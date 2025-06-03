@@ -27,6 +27,37 @@ namespace SafeZone.API.Controllers
             return await _context.Moradores.ToListAsync();
         }
 
+        [HttpPut("{id}")]
+        public async Task<IActionResult> AtualizarMorador(int id, [FromBody] Morador morador)
+        {
+            if (id != morador.Id)
+                return BadRequest("ID do morador não confere.");
+
+            var moradorExistente = await _context.Moradores.FindAsync(id);
+            if (moradorExistente == null)
+                return NotFound();
+
+            moradorExistente.Nome = morador.Nome;
+            moradorExistente.Cpf = morador.Cpf;
+            moradorExistente.Prioridade = morador.Prioridade;
+            moradorExistente.ZonaDeRiscoId = morador.ZonaDeRiscoId;
+
+            await _context.SaveChangesAsync();
+            return NoContent();
+        }
+
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> DeletarMorador(int id)
+        {
+            var morador = await _context.Moradores.FindAsync(id);
+            if (morador == null)
+                return NotFound();
+
+            _context.Moradores.Remove(morador);
+            await _context.SaveChangesAsync();
+            return NoContent();
+        }
+        
         [HttpPost]
         [SwaggerOperation(Summary = "Cadastra um novo morador vinculado a uma zona de risco")]
         [ProducesResponseType(StatusCodes.Status201Created)]

@@ -29,6 +29,38 @@ namespace SafeZone.API.Controllers
                 .ToListAsync();
         }
 
+        [HttpPut("{id}")]
+        public async Task<IActionResult> AtualizarAlerta(int id, [FromBody] Alerta alerta)
+        {
+            if (id != alerta.Id)
+                return BadRequest("ID do alerta não confere.");
+
+            var alertaExistente = await _context.Alertas.FindAsync(id);
+            if (alertaExistente == null)
+                return NotFound();
+
+            alertaExistente.Titulo = alerta.Titulo;
+            alertaExistente.Descricao = alerta.Descricao;
+            alertaExistente.NivelGravidade = alerta.NivelGravidade;
+            alertaExistente.DataHora = alerta.DataHora;
+            alertaExistente.ZonaDeRiscoId = alerta.ZonaDeRiscoId;
+
+            await _context.SaveChangesAsync();
+            return NoContent();
+        }
+
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> DeletarAlerta(int id)
+        {
+            var alerta = await _context.Alertas.FindAsync(id);
+            if (alerta == null)
+                return NotFound();
+
+            _context.Alertas.Remove(alerta);
+            await _context.SaveChangesAsync();
+            return NoContent();
+        }
+        
         [HttpPost]
         [SwaggerOperation(Summary = "Emite um novo alerta para uma zona de risco específica")]
         [ProducesResponseType(StatusCodes.Status201Created)]

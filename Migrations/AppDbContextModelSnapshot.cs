@@ -77,7 +77,7 @@ namespace SafeZone.API.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<string>("CPF")
+                    b.Property<string>("Cpf")
                         .IsRequired()
                         .HasColumnType("TEXT");
 

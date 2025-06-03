@@ -30,6 +30,37 @@ namespace SafeZone.API.Controllers
                 .ToListAsync();
         }
 
+        [HttpPut("{id}")]
+        public async Task<IActionResult> AtualizarZona(int id, [FromBody] ZonaDeRisco zona)
+        {
+            if (id != zona.Id)
+                return BadRequest("ID da zona não confere.");
+
+            var zonaExistente = await _context.ZonasDeRisco.FindAsync(id);
+            if (zonaExistente == null)
+                return NotFound();
+
+            zonaExistente.Nome = zona.Nome;
+            zonaExistente.TipoEvento = zona.TipoEvento;
+            zonaExistente.Status = zona.Status;
+            zonaExistente.Coordenadas = zona.Coordenadas;
+
+            await _context.SaveChangesAsync();
+            return NoContent();
+        }
+
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> DeletarZona(int id)
+        {
+            var zona = await _context.ZonasDeRisco.FindAsync(id);
+            if (zona == null)
+                return NotFound();
+
+            _context.ZonasDeRisco.Remove(zona);
+            await _context.SaveChangesAsync();
+            return NoContent();
+        }
+        
         [HttpPost]
         [SwaggerOperation(Summary = "Cadastra uma nova zona de risco no sistema")]
         [ProducesResponseType(StatusCodes.Status201Created)]
