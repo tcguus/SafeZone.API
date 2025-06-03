@@ -12,7 +12,6 @@ builder.Services.AddControllers().AddJsonOptions(x =>
     x.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.Preserve
 );
 
-builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(c =>
 {
@@ -20,23 +19,34 @@ builder.Services.AddSwaggerGen(c =>
     {
         Title = "SafeZone API",
         Version = "v1",
-        Description = "API para gerenciamento de zonas de risco, alertas, moradores e kits de emergência em situações de desastres naturais.",
-        
+        Description = "API para gerenciamento de zonas de risco, alertas, moradores e kits de emergência em situações de desastres naturais."
     });
 });
+
 builder.Services.AddRazorPages();
 
 var app = builder.Build();
 
-if (app.Environment.IsDevelopment())
+using (var scope = app.Services.CreateScope())
+{
+    var db = scope.ServiceProvider.GetRequiredService<AppDbContext>();
+    db.Database.EnsureCreated();
+}
+
+if (app.Environment.IsDevelopment() || app.Environment.IsProduction())
 {
     app.UseSwagger();
-    app.UseSwaggerUI();
+    app.UseSwaggerUI(c =>
+    {
+        c.SwaggerEndpoint("/swagger/v1/swagger.json", "SafeZone API v1");
+        c.RoutePrefix = string.Empty; 
+    });
 }
 
 app.UseHttpsRedirection();
 app.UseAuthorization();
-app.MapControllers(); 
+
+app.MapControllers();
 app.MapRazorPages();
 
 app.Run();
