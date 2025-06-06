@@ -149,7 +149,7 @@ Acesse pelo navegador:
 
 ---
 
-## 🔪 Exemplos de Testes no Swagger
+## Exemplos de Testes no Swagger
 
 > **Importante:** Sempre que você criar uma nova **Zona de Risco**, ela receberá um novo `id` automaticamente (por exemplo, `id: 3`).
 > Para cadastrar **moradores** ou **emitir alertas** relacionados a essa nova zona, é obrigatório atualizar o campo `"zonaDeRiscoId"` nos testes seguintes com o **id correspondente da nova zona**.
