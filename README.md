@@ -149,7 +149,27 @@ Acesse pelo navegador:
 
 ---
 
-## Exemplos de Testes no Swagger
+## 🔪 Exemplos de Testes no Swagger
+
+> **Importante:** Sempre que você criar uma nova **Zona de Risco**, ela receberá um novo `id` automaticamente (por exemplo, `id: 3`).
+> Para cadastrar **moradores** ou **emitir alertas** relacionados a essa nova zona, é obrigatório atualizar o campo `"zonaDeRiscoId"` nos testes seguintes com o **id correspondente da nova zona**.
+
+Por exemplo, após criar a zona:
+
+```json
+{
+  "$id": "2",
+  "id": 3,
+  "nome": "Zona Sul",
+  "tipoEvento": "Deslizamento",
+  "status": "Ativo",
+  "coordenadas": "-23.55,-45.63"
+}
+```
+
+Use `"zonaDeRiscoId": 3` nos cadastros de moradores e alertas.
+
+---
 
 ### Criar Kit de Emergência
 
@@ -179,7 +199,7 @@ Acesse pelo navegador:
   "nome": "Maria Oliveira",
   "cpf": "12345678901",
   "prioridade": "Alta",
-  "zonaDeRiscoId": 1
+  "zonaDeRiscoId": 3  // <-- Atualize com o ID da zona que você criou
 }
 ```
 
@@ -191,9 +211,10 @@ Acesse pelo navegador:
   "descricao": "Temperatura acima de 40ºC",
   "nivelGravidade": "Crítico",
   "dataHora": "2025-05-29T16:30:00",
-  "zonaDeRiscoId": 1
+  "zonaDeRiscoId": 3  // <-- Atualize com o ID da zona que você criou
 }
 ```
+
 
 ---
 
