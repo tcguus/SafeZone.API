@@ -5548,11 +5548,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Gustavo\\RiderProjects\\SafeZone.API\\SafeZone.API.csproj",
+      "projectUniqueName": "C:\\Users\\Gustavo\\Desktop\\SafeZone.API-1\\SafeZone.API.csproj",
       "projectName": "SafeZone.API",
-      "projectPath": "C:\\Users\\Gustavo\\RiderProjects\\SafeZone.API\\SafeZone.API.csproj",
+      "projectPath": "C:\\Users\\Gustavo\\Desktop\\SafeZone.API-1\\SafeZone.API.csproj",
       "packagesPath": "C:\\Users\\Gustavo\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Gustavo\\RiderProjects\\SafeZone.API\\obj\\",
+      "outputPath": "C:\\Users\\Gustavo\\Desktop\\SafeZone.API-1\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Gustavo\\AppData\\Roaming\\NuGet\\NuGet.Config"

@@ -98,7 +98,7 @@ dotnet run
 
 6. Acesse o Swagger:
 
-[http://localhost:5163/swagger](http://localhost:5163/swagger)
+[http://localhost:5163/swagger/index.html](http://localhost:5163/swagger/index.html)
 
 ---
 
@@ -113,7 +113,7 @@ A aplicação possui uma interface web construída com Razor Pages, que permite:
 
 Acesse pelo navegador:
 
-[http://localhost:5163](http://localhost:5163)
+[http://localhost:5163/index](http://localhost:5163/index)
 
 ---
 
