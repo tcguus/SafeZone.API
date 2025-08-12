@@ -1,6 +1,6 @@
 # SafeZone.API
 
-API desenvolvida para auxiliar na gestão de zonas de risco, moradores, alertas e kits de emergência em regiões afetadas por desastres naturais.
+API desenvolvida para auxiliar na gestão de zonas de risco, moradores, alertas e kits de emergência em regiões afetadas por desastres naturais!
 
 ---
 
